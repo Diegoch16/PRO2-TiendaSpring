@@ -1,21 +1,23 @@
 package src.menus;
 
-
 import java.util.List;
-
+import com.mitienda.spring.controllers.FacturaController;
 import src.models.Clientes;
 import src.models.Factura;
 import src.models.FacturaLinea;
 import src.models.Producto;
-import src.models.comun.DbObject;
 
 public class MenuFacturas extends Menu {
+	
+	private FacturaController ctrl = FacturaController.getInstance();
+
+	
 	public String toString() {
 		// TODO Auto-generated method stub
 		return 
-				"¿Qué acción quiere realizar? \n"+
+				"Que acciÃ³n quiere realizar? \n"+
 				"1.Crear nueva factura \n"+
-				"2.Añadir una linea a una factura existente \n"+
+				"2.AÃ±adir una linea a una factura existente \n"+
 				"3.Ver facturas\n"+
 				"4.Ver lineas de una factura\n"+
 				"5.Editar una factura \n"+
@@ -23,7 +25,7 @@ public class MenuFacturas extends Menu {
 				"7.Borrar una factura \n"+	
 				"8.Borrar una linea de una factura \n"+
 				
-				"0.Volver al menú principal"	;
+				"0.Volver al menÃº principal"	;
 		
 	}
 	
@@ -57,7 +59,7 @@ public class MenuFacturas extends Menu {
 				case "0":
 					return new MenuPrincipal();
 				default:
-					System.out.println("Opción no válida");
+					System.out.println("OpciÃ³n no vÃ¡lida");
 					break;
 				
 				}
@@ -88,8 +90,8 @@ public class MenuFacturas extends Menu {
 
 	private void borrarLineaFactura() {
 		Factura fac = MenuController.eligeFactura();
-		List<DbObject> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(DbObject obj: listFl) {
+		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
+		for(Factura obj: listFl) {
 			System.out.println(obj.getId()+" "+obj);
 		}
 		FacturaLinea fl = MenuController.eligeLineaFactura();
@@ -99,8 +101,8 @@ public class MenuFacturas extends Menu {
 
 	private void borrarFactura() {
 		Factura fac = MenuController.eligeFactura();
-		List<DbObject> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(DbObject obj: listFl) {
+		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
+		for(Factura obj: listFl) {
 			obj.delete();
 		}
 		

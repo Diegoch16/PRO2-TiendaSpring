@@ -13,8 +13,8 @@ public class MenuPrincipal extends Menu{
 	public String toString() {
 		// TODO Auto-generated method stub
 		return 
-				"¿Qué tabla quiere manejar? \n"+
-				"1.Categoría \n"+
+				"Que tabla quiere manejar? \n"+
+				"1.Categorï¿½a \n"+
 				"2.Clientes \n"+
 				"3.Factura \n"+
 				"4.Producto \n"+
@@ -37,7 +37,7 @@ public class MenuPrincipal extends Menu{
 		case "0":
 			return null;
 		default:
-			System.out.println("Opción no válida");
+			System.out.println("OpciÃ³n no vÃ¡lida");
 			return new MenuPrincipal();		
 		}
 	}

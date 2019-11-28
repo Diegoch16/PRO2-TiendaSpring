@@ -1,23 +1,24 @@
 package src.menus;
 
 import java.util.List;
+import com.mitienda.spring.controllers.ClienteController;
 import src.models.Clientes;
-import src.models.comun.DbObject;
 
 public class MenuClientes extends Menu {
 	
+	private ClienteController ctrl = ClienteController.getInstance();
 	
 	public String toString() {
 		
 		return 
-				"¿Qué acción quiere realizar? \n"+
+				"Que acciÃ³n quiere realizar? \n"+
 				"1.Crear nuevo cliente \n"+
 				"2.Ver clientes\n"+
 				"3.Ver detalles de un cliente\n"+
 				"4.Actualizar un cliente \n"+
 				"5.Borrar un cliente \n"+			
 				
-				"0.Volver al menú principal"	;
+				"0.Volver al menÃº principal"	;
 	}
 	
 	@Override
@@ -42,7 +43,7 @@ public class MenuClientes extends Menu {
 				case "0":
 					return new MenuPrincipal();
 				default:
-					System.out.println("Opción no válida");
+					System.out.println("OpciÃ³n no vÃ¡lida");
 					break;
 				}
 		return new MenuClientes();		
@@ -55,7 +56,7 @@ public class MenuClientes extends Menu {
 		}
 		System.out.println("Nombre: \t"+cli.getNombre());
 		System.out.println("DNI: \t"+cli.getDni());
-		System.out.println("Dirección: \t"+cli.getDireccion());
+		System.out.println("DirecciÃ³n: \t"+cli.getDireccion());
 		System.out.println("Telefono: \t"+cli.getTelefono());
 		System.out.println("Email: \t"+cli.getEmail());
 		
@@ -67,24 +68,25 @@ public class MenuClientes extends Menu {
 		cli.setNombre(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca el dni del cliente");
 		cli.setDni(MenuController.campoValido("^[^,]+$"));
-		System.out.println("Introduzca dirección: ");
+		System.out.println("Introduzca direcciÃ³n: ");
 		cli.setDireccion(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca telefono: ");
 		cli.setTelefono(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca email: ");
 		cli.setEmail(MenuController.campoValido("^[A-Za-z0-9+_.-]+@(.+)$"));
-		cli.save();		
+		ctrl.save(cli);
 		
 	}
-	private void verCliente() {
-		Clientes cli = new Clientes();		
-		List<DbObject> listaCat = cli.list();
+	private void verCliente() {	
+		Clientes cli = new Clientes();
+		List<Clientes> listaCat = cli.list();
 		System.out.println("Tabla Categoria: ");
 		System.out.println("ID \t Nombre");
-		for(DbObject obj : listaCat) {
-			cli = (Clientes)obj;
-			System.out.print(cli.getId() +"\t");
-			System.out.print(cli.getNombre()+"\n");			
+		for(Clientes cli1 : listaCat) {
+			//cli = (Clientes)obj;
+			System.out.print(cli1.getId() +"\t");
+			System.out.print(cli1.getNombre()+"\n");
+			
 		}		
 	}
 	
@@ -99,13 +101,13 @@ public class MenuClientes extends Menu {
 		cli.setNombre(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca el dni del cliente Actual: "+cli.getDni());
 		cli.setDni(MenuController.campoValido("\\d{8}[A-HJ-NP-TV-Z]"));
-		System.out.println("Introduzca dirección: Actual:"+cli.getDireccion());
+		System.out.println("Introduzca direcciÃ³n: Actual:"+cli.getDireccion());
 		cli.setDireccion(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca telefono: Actual: "+cli.getTelefono());
 		cli.setTelefono(MenuController.campoValido("^[^,]+$"));
 		System.out.println("Introduzca email: Actual: "+cli.getEmail());
 		cli.setEmail(MenuController.campoValido("^[A-Za-z0-9+_.-]+@(.+)$"));
-		cli.save();			
+		ctrl.save(cli);
 	}
 	private void borrarCliente() {
 		Clientes cli = MenuController.eligeCliente();	
@@ -113,7 +115,7 @@ public class MenuClientes extends Menu {
 			System.out.println("No existe el cliente a borrar");
 			return;
 		}
-		cli.delete();		
+		ctrl.save(cli);
 	}
 	
 	
