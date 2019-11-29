@@ -79,7 +79,7 @@ public class MenuClientes extends Menu {
 	}
 	private void verCliente() {	
 		Clientes cli = new Clientes();
-		List<Clientes> listaCat = cli.list();
+		List<Clientes> listaCat = ctrl.list();
 		System.out.println("Tabla Categoria: ");
 		System.out.println("ID \t Nombre");
 		for(Clientes cli1 : listaCat) {

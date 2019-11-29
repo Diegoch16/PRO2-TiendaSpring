@@ -1,7 +1,6 @@
 package src.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 public class Clientes {
 
 	@Id
-	private Long id;
+	private Integer id;
 	private Date created;
 	private String nombre;
 	private String dni;
@@ -20,7 +19,7 @@ public class Clientes {
 	private String telefono;
 	private String email;
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -72,13 +71,7 @@ public class Clientes {
 		this.email = email;
 	}
 
-	public List<Clientes> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 

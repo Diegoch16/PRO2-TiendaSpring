@@ -1,7 +1,10 @@
 package src.menus;
 
 import java.util.List;
+
 import com.mitienda.spring.controllers.FacturaController;
+import com.mitienda.spring.controllers.FacturaLineaController;
+
 import src.models.Clientes;
 import src.models.Factura;
 import src.models.FacturaLinea;
@@ -10,7 +13,7 @@ import src.models.Producto;
 public class MenuFacturas extends Menu {
 	
 	private FacturaController ctrl = FacturaController.getInstance();
-
+	private FacturaLineaController ctrl2 = FacturaLineaController.getInstance();
 	
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -95,7 +98,7 @@ public class MenuFacturas extends Menu {
 			System.out.println(obj.getId()+" "+obj);
 		}
 		FacturaLinea fl = MenuController.eligeLineaFactura();
-		fl.delete();
+		ctrl.delete(fac);
 		
 	}
 
@@ -106,7 +109,7 @@ public class MenuFacturas extends Menu {
 			obj.delete();
 		}
 		
-		fac.delete();
+		ctrl.delete(fac);
 		
 	}
 
@@ -137,8 +140,8 @@ public class MenuFacturas extends Menu {
 	private void verLineasFactura() {
 		Factura fac = MenuController.eligeFactura();
 		
-		List<DbObject> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(DbObject obj: listFl) {
+		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
+		for(Factura obj: listFl) {
 			System.out.println(obj.getId()+" "+obj);
 		}
 				
@@ -147,9 +150,9 @@ public class MenuFacturas extends Menu {
 	}
 
 	private void verFacturas() {
-		List<DbObject> facList = new Factura().list();
+		List<Factura> facList = ctrl.list();
 		
-		for(DbObject obj: facList ) {
+		for(Factura obj: facList ) {
 			System.out.println(obj.getId()+ " " +obj.toString());
 		}
 		
@@ -167,7 +170,7 @@ public class MenuFacturas extends Menu {
 		fl.setNombre(prod.getNombre());
 		fl.setPrecio(Integer.parseInt(MenuController.campoValido("^\\d+$")));
 		
-		fl.save();
+		ctrl.save(fac);
 	}
 
 	private void crearFactura() {
@@ -188,7 +191,7 @@ public class MenuFacturas extends Menu {
 		fac.setSerie(Integer.parseInt(MenuController.campoValido("^\\d+$")));
 		fac.setId_cliente(cli.getId());
 			
-		fac.save();
+		ctrl.save(fac);
 		
 	}
 	

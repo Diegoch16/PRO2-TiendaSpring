@@ -2,11 +2,16 @@ package src.menus;
 
 import java.util.List;
 
+
 import src.models.Categorias;
 import src.models.Producto;
-import src.models.comun.DbObject;
+
+import com.mitienda.spring.controllers.ProductoController;
 
 public class MenuProductos extends Menu {
+	
+	private ProductoController ctrl = ProductoController.getInstance();
+	
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Que acción quiere realizar? \n" + "1.Crear nuevo producto \n" + "2.Ver productos \n"
@@ -62,12 +67,12 @@ public class MenuProductos extends Menu {
 		prod.setStock(Integer.parseInt(MenuController.campoValido("^[^,]+$")));
 
 		prod.setId_categoria(cat.getId());
-		prod.save();
+		ctrl.save(prod);
 	}
 
 	private void verProductos() {
-		List<DbObject> prodList = new Producto().list();
-		for (DbObject obj : prodList) {
+		List<Producto> prodList = ctrl.list();
+		for (Producto obj : prodList) {
 			System.out.println(obj.getId() + " " + obj.toString());
 		}
 	}
@@ -78,8 +83,8 @@ public class MenuProductos extends Menu {
 			System.out.println("Categor�a no encontrada");
 			return;
 		}
-		List<DbObject> prodList = new Producto().list();
-		for (DbObject obj : prodList) {
+		List<Producto> prodList = ctrl.list();
+		for (Producto obj : prodList) {
 			Producto prod = (Producto) obj;
 			if (prod.getId_categoria() == cat.getId()) {
 				System.out.println(prod.getId() + " " + prod.toString());
@@ -93,10 +98,10 @@ public class MenuProductos extends Menu {
 			System.out.println("Producto no encontrado");
 			return;
 		}
-		System.out.println("Elija la nueva categor�a del producto");
-		Categoria cat = MenuController.eligeCategoria();
+		System.out.println("Elija la nueva categoría del producto");
+		Categorias cat = MenuController.eligeCategoria();
 		if (cat == null) {
-			System.out.println("Categor�a no v�lida");
+			System.out.println("Categoría no válida");
 			return;
 		}
 
@@ -108,7 +113,7 @@ public class MenuProductos extends Menu {
 		prod.setStock(Integer.parseInt(MenuController.campoValido("^[^,]+$")));
 
 		prod.setId_categoria(cat.getId());
-		prod.save();
+		ctrl.save(prod);
 	}
 
 	private void borrarProducto() {
@@ -117,7 +122,7 @@ public class MenuProductos extends Menu {
 			System.out.println("Producto no encontrado");
 			return;
 		}
-		prod.delete();
+		ctrl.delete(prod);
 
 	}
 

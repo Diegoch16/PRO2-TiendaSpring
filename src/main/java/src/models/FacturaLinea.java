@@ -1,7 +1,6 @@
 package src.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -58,15 +57,9 @@ public class FacturaLinea {
 		this.precio = precio;
 	}
 
-	public List<Factura> getByCampos(String string, String string2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	public void delete() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 }

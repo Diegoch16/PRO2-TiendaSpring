@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import src.models.Factura;
+import src.models.FacturaLinea;
+
 import com.mitienda.spring.repositories.FacturaRepository;
 
 public class FacturaLineaController {
@@ -59,10 +61,10 @@ public class FacturaLineaController {
 	/**
 	 * Borra de la base de datos el objecto que se le pasa por parametro
 	 * 
-	 * @param cat - <strong>TIENE QUE TENER ID</strong>
+	 * @param fl - <strong>TIENE QUE TENER ID</strong>
 	 */
-	public void delete(Factura cat) {
-		repository.delete(cat);
+	public void delete(Factura fl) {
+		repository.delete(fl);
 	}
 
 	/**
