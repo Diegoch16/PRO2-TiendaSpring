@@ -22,7 +22,7 @@ import com.mitienda.spring.models.Producto;
 
 public class MenuController {
 	
-	private FacturaController ctrl = FacturaController.getInstance();
+	private FacturaController ctrl1 = FacturaController.getInstance();
 	private FacturaLineaController ctrl2 = FacturaLineaController.getInstance();
 	private ProductoController ctrl3 = ProductoController.getInstance();
 	private ClienteController ctrl4 = ClienteController.getInstance();
@@ -109,7 +109,7 @@ public class MenuController {
 	private Factura seleccionarObjeto(Factura factura) {
 		
 		int id = -1;
-		List<Factura> tabla = ctrl.list();
+		List<Factura> tabla = ctrl1.list();
 		if (tabla.isEmpty()) {
 			System.out.println("No hay nada en la tabla");
 			return null;
@@ -125,7 +125,9 @@ public class MenuController {
 			System.out.println("Id no válida");
 			return null;
 		}
-		Factura fc =  Factura.getInstance().getByid(factura, id); //<-- getByid()
+		
+		
+		Factura fc =  ctrl1.findById(Long.valueOf(id));//<-- getByid()
 
 		return fc;
 	}
@@ -153,7 +155,7 @@ public class MenuController {
 			System.out.println("Id no válida");
 			return null;
 		}
-		FacturaLinea fcl =  FacturaLinea.getInstance().getByid(facturaLinea, id); //<-- getByid()
+		FacturaLinea fcl =  ctrl2.findById(Long.valueOf(id));//<-- getByid()
 
 		return fcl;
 	}
@@ -181,7 +183,7 @@ public class MenuController {
 			System.out.println("Id no válida");
 			return null;
 		}
-		Clientes c =  Clientes.getInstance().getByid(clientes, id); //<-- getByid()
+		Clientes c =  ctrl4.findById(Long.valueOf(id));//<-- getByid()
 
 		return c;
 	}
@@ -209,7 +211,7 @@ public class MenuController {
 			System.out.println("Id no válida");
 			return null;
 		}
-		Producto p =  Producto.getInstance().getByid(producto, id); //<-- getByid()
+		Producto p =  ctrl3.findById(Long.valueOf(id)); //<-- getByid()
 
 		return p;
 	}
@@ -237,7 +239,7 @@ public class MenuController {
 			System.out.println("Id no válida");
 			return null;
 		}
-		Categorias ca =  Categorias.getInstance().getByid(categorias, id); //<--getByid()
+		Categorias ca =  ctrl5.findById(Long.valueOf(id)); //<--getByid()
 
 		return ca;
 	}
