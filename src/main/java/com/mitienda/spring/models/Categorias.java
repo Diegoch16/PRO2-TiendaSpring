@@ -20,8 +20,6 @@ public class Categorias implements java.io.Serializable {
 
 	private String name;
 
-	private static Categorias instance;
-
 	public Categorias() {
 	}
 
@@ -48,17 +46,5 @@ public class Categorias implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public static Categorias getInstance() {
-		if (instance == null) {
-			instance = new Categorias();
-		}
-		return instance;
-	}
-
-	public Categorias getByid(Categorias categorias, Integer id) {
-		return Categorias.getInstance().getByid(this, id);
-
 	}
 }

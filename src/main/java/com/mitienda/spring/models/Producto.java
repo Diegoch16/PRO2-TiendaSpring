@@ -3,6 +3,8 @@ package com.mitienda.spring.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,15 +13,13 @@ import javax.persistence.Table;
 public class Producto {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private Date created;
 	private String nombre;
 	private Integer precio; // 100 = 1,00
 	private Integer stock;
 	private Integer id_categoria;
-	
-	private static Producto instance;
-
 
 	public Integer getId() {
 		return id;
@@ -67,18 +67,6 @@ public class Producto {
 
 	public void setId_categoria(Integer id_categoria) {
 		this.id_categoria = id_categoria;
-	}
-	
-	public static Producto getInstance() {
-		if (instance == null) {
-			instance = new Producto();
-		}
-		return instance;
-	}
-
-	public Producto getByid(Producto producto, Integer id) {
-		return Producto.getInstance().getByid(this, id);
-		
 	}
 
 }

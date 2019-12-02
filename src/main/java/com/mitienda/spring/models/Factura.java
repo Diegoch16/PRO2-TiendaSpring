@@ -3,6 +3,8 @@ package com.mitienda.spring.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,13 +13,12 @@ import javax.persistence.Table;
 public class Factura {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private Date created;
 	private Date fecha;
 	private Integer serie;
 	private Integer id_cliente;
-
-	private static Factura instance;
 
 	public Integer getId() {
 		return id;
@@ -57,18 +58,6 @@ public class Factura {
 
 	public void setId_cliente(Integer id_cliente) {
 		this.id_cliente = id_cliente;
-	}
-
-	public static Factura getInstance() {
-		if (instance == null) {
-			instance = new Factura();
-		}
-		return instance;
-	}
-
-	public Factura getByid(Factura factura, Integer id) {
-		return Factura.getInstance().getByid(this, id);
-
 	}
 
 }
