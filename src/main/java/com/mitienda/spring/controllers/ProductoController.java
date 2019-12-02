@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import src.models.Producto;
+import com.mitienda.spring.models.Producto;
 import com.mitienda.spring.repositories.ProductoRepository;
 
 public class ProductoController {

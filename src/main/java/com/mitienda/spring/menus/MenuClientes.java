@@ -2,7 +2,7 @@ package com.mitienda.spring.menus;
 
 import java.util.List;
 import com.mitienda.spring.controllers.ClienteController;
-import src.models.Clientes;
+import com.mitienda.spring.models.Clientes;
 
 public class MenuClientes extends Menu {
 	

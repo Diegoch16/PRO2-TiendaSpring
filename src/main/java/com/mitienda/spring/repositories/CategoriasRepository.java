@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import src.models.Categorias;
+import com.mitienda.spring.models.Categorias;
 
 @Repository
 public interface CategoriasRepository extends CrudRepository<Categorias, Long> {

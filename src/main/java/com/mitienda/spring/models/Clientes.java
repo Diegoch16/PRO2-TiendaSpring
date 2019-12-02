@@ -1,4 +1,4 @@
-package src.models;
+package com.mitienda.spring.models;
 
 import java.util.Date;
 

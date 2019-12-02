@@ -9,48 +9,43 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.mitienda.spring.menus.MenuController;
 import com.mitienda.spring.repositories.CategoriasRepository;
 
-import src.menus.MenuController;
- 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.mitienda.spring.repositories.*" })
-@EntityScan("my.package.base.*")  
+@EntityScan("my.package.base.*")
 public class StartApplication implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
-    
-    @Autowired
-    private CategoriasRepository repository;
+	private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(StartApplication.class, args);
-    }
+	@Autowired
+	private CategoriasRepository repository;
 
-    @Override
-    public void run(String... args) {
-    	/*
-        log.info("StartApplication...");
+	public static void main(String[] args) {
+		SpringApplication.run(StartApplication.class, args);
+	}
 
-        repository.save(new Categorias("Java"));
-        repository.save(new Categorias("Node"));
-        repository.save(new Categorias("Python"));
+	@Override
+	public void run(String... args) {
+		/*
+		 * log.info("StartApplication...");
+		 * 
+		 * repository.save(new Categorias("Java")); repository.save(new
+		 * Categorias("Node")); repository.save(new Categorias("Python"));
+		 * 
+		 * System.out.println("\nfindAll()"); repository.findAll().forEach(x ->
+		 * System.out.println(x));
+		 * 
+		 * System.out.println("\nfindById(1L)"); repository.findById(1l).ifPresent(x ->
+		 * System.out.println(x));
+		 * 
+		 * System.out.println("\nfindByName('Node')");
+		 * repository.findByName("Node").forEach(x -> System.out.println(x));
+		 */
 
-        System.out.println("\nfindAll()");
-        repository.findAll().forEach(x -> System.out.println(x));
+		MenuController.getInstance().callMenus();
 
-        System.out.println("\nfindById(1L)");
-        repository.findById(1l).ifPresent(x -> System.out.println(x));
-
-        System.out.println("\nfindByName('Node')");
-        repository.findByName("Node").forEach(x -> System.out.println(x));
-        */
-        
-    	MenuController.getInstance().callMenus();
-
-    }
-	
-    
-	
+	}
 
 }

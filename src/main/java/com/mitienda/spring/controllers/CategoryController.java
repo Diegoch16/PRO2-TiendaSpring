@@ -6,9 +6,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.mitienda.spring.models.Categorias;
 import com.mitienda.spring.repositories.CategoriasRepository;
-
-import src.models.Categorias;
 
 public class CategoryController {
 

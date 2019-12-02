@@ -4,11 +4,10 @@ import java.util.List;
 
 import com.mitienda.spring.controllers.FacturaController;
 import com.mitienda.spring.controllers.FacturaLineaController;
-
-import src.models.Clientes;
-import src.models.Factura;
-import src.models.FacturaLinea;
-import src.models.Producto;
+import com.mitienda.spring.models.Clientes;
+import com.mitienda.spring.models.Factura;
+import com.mitienda.spring.models.FacturaLinea;
+import com.mitienda.spring.models.Producto;
 
 public class MenuFacturas extends Menu {
 	

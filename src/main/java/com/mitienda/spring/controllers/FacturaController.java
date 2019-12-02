@@ -8,8 +8,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import src.models.Factura;
-
+import com.mitienda.spring.models.Factura;
 import com.mitienda.spring.repositories.FacturaRepository;
 
 public class FacturaController {

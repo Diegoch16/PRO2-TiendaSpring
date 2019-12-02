@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import src.models.Clientes;
+import com.mitienda.spring.models.Clientes;
 import com.mitienda.spring.repositories.ClienteRepository;
 
 public class ClienteController {

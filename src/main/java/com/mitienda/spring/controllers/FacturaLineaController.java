@@ -6,8 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import src.models.FacturaLinea;
-
+import com.mitienda.spring.models.FacturaLinea;
 import com.mitienda.spring.repositories.FacturaLineaRepository;
 
 public class FacturaLineaController {

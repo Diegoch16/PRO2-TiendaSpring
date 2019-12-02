@@ -2,11 +2,9 @@ package com.mitienda.spring.menus;
 
 import java.util.List;
 
-
-import src.models.Categorias;
-import src.models.Producto;
-
 import com.mitienda.spring.controllers.ProductoController;
+import com.mitienda.spring.models.Categorias;
+import com.mitienda.spring.models.Producto;
 
 public class MenuProductos extends Menu {
 	

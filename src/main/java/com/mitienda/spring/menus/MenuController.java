@@ -14,12 +14,11 @@ import com.mitienda.spring.controllers.ClienteController;
 import com.mitienda.spring.controllers.FacturaController;
 import com.mitienda.spring.controllers.FacturaLineaController;
 import com.mitienda.spring.controllers.ProductoController;
-
-import src.models.Categorias;
-import src.models.Clientes;
-import src.models.Factura;
-import src.models.FacturaLinea;
-import src.models.Producto;
+import com.mitienda.spring.models.Categorias;
+import com.mitienda.spring.models.Clientes;
+import com.mitienda.spring.models.Factura;
+import com.mitienda.spring.models.FacturaLinea;
+import com.mitienda.spring.models.Producto;
 
 public class MenuController {
 	

@@ -3,8 +3,7 @@ package com.mitienda.spring.menus;
 import java.util.List;
 
 import com.mitienda.spring.controllers.CategoryController;
-
-import src.models.Categorias;
+import com.mitienda.spring.models.Categorias;
 
 public class MenuCategorias extends Menu {
 	
