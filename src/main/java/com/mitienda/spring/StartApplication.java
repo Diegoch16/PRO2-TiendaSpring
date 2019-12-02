@@ -11,8 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.mitienda.spring.menus.MenuController;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.mitienda.spring.repositories.*" })
-@EntityScan("com.mitienda.spring.models.*")
+
 public class StartApplication implements CommandLineRunner {
 
 	private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
