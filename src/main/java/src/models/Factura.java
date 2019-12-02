@@ -17,6 +17,8 @@ public class Factura {
 	private Integer serie;
 	private Integer id_cliente;
 
+	private static Factura instance;
+
 	public Integer getId() {
 		return id;
 	}
@@ -57,14 +59,16 @@ public class Factura {
 		this.id_cliente = id_cliente;
 	}
 
-	public void delete() {
-		// TODO Auto-generated method stub
-		
+	public static Factura getInstance() {
+		if (instance == null) {
+			instance = new Factura();
+		}
+		return instance;
 	}
 
-	
+	public Factura getByid(Factura factura, Integer id) {
+		return Factura.getInstance().getByid(this, id);
 
-	
-
+	}
 
 }

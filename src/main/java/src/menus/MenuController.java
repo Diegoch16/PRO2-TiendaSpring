@@ -2,6 +2,7 @@ package src.menus;
 
 import java.text.ParseException;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,6 @@ import src.models.Clientes;
 import src.models.Factura;
 import src.models.FacturaLinea;
 import src.models.Producto;
-import src.models.*;
 
 public class MenuController {
 	
@@ -119,17 +119,16 @@ public class MenuController {
 		for (Factura dbo : tabla) {
 			System.out.println(dbo.getId() + " " + dbo.toString());
 		}
-		System.out.println("Introduzca la ID del objeto de " + factura.getTable() + " que quiera seleccionar ");
+		System.out.println("Introduzca la ID del objeto de facturas que quiera seleccionar ");//<-- getTable()
 		try {
 			id = Integer.parseInt(this.keyboard.nextLine());
 		} catch (NumberFormatException ex) {
 			System.out.println("Id no válida");
 			return null;
 		}
-		Object pedido =  factura.getByid(id);
+		Factura fc =  Factura.getInstance().getByid(factura, id); //<-- getByid()
 
-		return pedido;
-		return null;
+		return fc;
 	}
 
 	public static FacturaLinea eligeLineaFactura() {
@@ -138,8 +137,26 @@ public class MenuController {
 
 
 	private FacturaLinea seleccionarObjeto(FacturaLinea facturaLinea) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = -1;
+		List<FacturaLinea> tabla = ctrl2.list();
+		if (tabla.isEmpty()) {
+			System.out.println("No hay nada en la tabla");
+			return null;
+		}
+
+		for (FacturaLinea dbo : tabla) {
+			System.out.println(dbo.getId() + " " + dbo.toString());
+		}
+		System.out.println("Introduzca la ID del objeto de facturasLinea que quiera seleccionar ");//<-- getTable()
+		try {
+			id = Integer.parseInt(this.keyboard.nextLine());
+		} catch (NumberFormatException ex) {
+			System.out.println("Id no válida");
+			return null;
+		}
+		FacturaLinea fcl =  FacturaLinea.getInstance().getByid(facturaLinea, id); //<-- getByid()
+
+		return fcl;
 	}
 
 	public static Clientes eligeCliente() {
@@ -148,8 +165,26 @@ public class MenuController {
 
 
 	private Clientes seleccionarObjeto(Clientes clientes) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = -1;
+		List<Clientes> tabla = ctrl4.list();
+		if (tabla.isEmpty()) {
+			System.out.println("No hay nada en la tabla");
+			return null;
+		}
+
+		for (Clientes dbo : tabla) {
+			System.out.println(dbo.getId() + " " + dbo.toString());
+		}
+		System.out.println("Introduzca la ID del objeto de clientes que quiera seleccionar ");//<-- getTable()
+		try {
+			id = Integer.parseInt(this.keyboard.nextLine());
+		} catch (NumberFormatException ex) {
+			System.out.println("Id no válida");
+			return null;
+		}
+		Clientes c =  Clientes.getInstance().getByid(clientes, id); //<-- getByid()
+
+		return c;
 	}
 
 	public static Producto eligeProducto() {
@@ -158,8 +193,26 @@ public class MenuController {
 
 
 	private Producto seleccionarObjeto(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = -1;
+		List<Producto> tabla = ctrl3.list();
+		if (tabla.isEmpty()) {
+			System.out.println("No hay nada en la tabla");
+			return null;
+		}
+
+		for (Producto dbo : tabla) {
+			System.out.println(dbo.getId() + " " + dbo.toString());
+		}
+		System.out.println("Introduzca la ID del objeto de producto que quiera seleccionar ");//<-- getTable()
+		try {
+			id = Integer.parseInt(this.keyboard.nextLine());
+		} catch (NumberFormatException ex) {
+			System.out.println("Id no válida");
+			return null;
+		}
+		Producto p =  Producto.getInstance().getByid(producto, id); //<-- getByid()
+
+		return p;
 	}
 
 	public static Categorias eligeCategoria() {
@@ -168,8 +221,26 @@ public class MenuController {
 
 
 	private Categorias seleccionarObjeto(Categorias categorias) {
-		// TODO Auto-generated method stub
-		return null;
+		int id = -1;
+		List<Categorias> tabla = ctrl5.list();
+		if (tabla.isEmpty()) {
+			System.out.println("No hay nada en la tabla");
+			return null;
+		}
+
+		for (Categorias dbo : tabla) {
+			System.out.println(dbo.getId() + " " + dbo.toString());
+		}
+		System.out.println("Introduzca la ID del objeto de categorias que quiera seleccionar ");//<-- getTable()
+		try {
+			id = Integer.parseInt(this.keyboard.nextLine());
+		} catch (NumberFormatException ex) {
+			System.out.println("Id no válida");
+			return null;
+		}
+		Categorias ca =  Categorias.getInstance().getByid(categorias, id); //<--getByid()
+
+		return ca;
 	}
 
 	public static Date validarFecha() {
@@ -192,5 +263,7 @@ public class MenuController {
 		}
 		return fecha;
 	}
+	
+	
 
 }

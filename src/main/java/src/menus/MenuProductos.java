@@ -55,7 +55,7 @@ public class MenuProductos extends Menu {
 		System.out.println("Elija la categoría del producto");
 		Categorias cat = MenuController.eligeCategoria();
 		if (cat == null) {
-			System.out.println("Categor�a no v�lida");
+			System.out.println("Categoría no válida");
 			return;
 		}
 

@@ -1,11 +1,13 @@
 package com.mitienda.spring.repositories;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import src.models.Categorias;
 
-import java.util.List;
-
+@Repository
 public interface CategoriasRepository extends CrudRepository<Categorias, Long> {
 
     List<Categorias> findByName(String name);

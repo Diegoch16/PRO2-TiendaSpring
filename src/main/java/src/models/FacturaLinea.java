@@ -1,5 +1,6 @@
 package src.models;
 
+import java.sql.Connection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,12 +11,16 @@ import javax.persistence.Table;
 @Table(name = "facturas_linea", catalog = "dialer")
 public class FacturaLinea {
 
+	private Connection con;
+
 	@Id
 	private Integer id;
 	private Date created;
 	private Integer id_factura;
 	private String nombre;
 	private Integer precio; // 100 = 1,00
+
+	private static FacturaLinea instance;
 
 	public Integer getId() {
 		return id;
@@ -57,9 +62,16 @@ public class FacturaLinea {
 		this.precio = precio;
 	}
 
-	
+	public static FacturaLinea getInstance() {
+		if (instance == null) {
+			instance = new FacturaLinea();
+		}
+		return instance;
+	}
 
-	
+	public FacturaLinea getByid(FacturaLinea facturalinea, Integer id) {
+		return FacturaLinea.getInstance().getByid(this, id);
 
+	}
 
 }

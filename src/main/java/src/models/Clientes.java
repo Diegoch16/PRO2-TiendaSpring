@@ -18,6 +18,9 @@ public class Clientes {
 	private String direccion;
 	private String telefono;
 	private String email;
+	
+	private static Clientes instance;
+
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -73,6 +76,18 @@ public class Clientes {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public static Clientes getInstance() {
+		if (instance == null) {
+			instance = new Clientes();
+		}
+		return instance;
+	}
+
+	public Clientes getByid(Clientes clientes, Integer id) {
+		return Clientes.getInstance().getByid(this, id);
+		
 	}
 
 }

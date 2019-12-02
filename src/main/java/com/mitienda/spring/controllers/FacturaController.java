@@ -1,5 +1,7 @@
 package com.mitienda.spring.controllers;
 
+import java.sql.Connection;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import src.models.Factura;
+
 import com.mitienda.spring.repositories.FacturaRepository;
 
 public class FacturaController {
@@ -23,6 +26,8 @@ public class FacturaController {
 		return instance;
 	}
 
+	private Connection con;
+	
 	@Autowired
 	private FacturaRepository repository;
 
@@ -88,5 +93,6 @@ public class FacturaController {
 		}
 		return item.get();
 	}
+	
 
 }

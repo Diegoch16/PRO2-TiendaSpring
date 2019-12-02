@@ -91,23 +91,16 @@ public class MenuFacturas extends Menu {
 		
 	}
 
-	private void borrarLineaFactura() {
-		Factura fac = MenuController.eligeFactura();
-		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(Factura obj: listFl) {
-			System.out.println(obj.getId()+" "+obj);
-		}
-		FacturaLinea fl = MenuController.eligeLineaFactura();
-		ctrl.delete(fac);
+	private void borrarLineaFactura() { 
+		FacturaLinea fac = MenuController.eligeLineaFactura();
+		
+		ctrl2.delete(fac);
 		
 	}
 
 	private void borrarFactura() {
 		Factura fac = MenuController.eligeFactura();
-		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(Factura obj: listFl) {
-			obj.delete();
-		}
+		
 		
 		ctrl.delete(fac);
 		
@@ -140,11 +133,7 @@ public class MenuFacturas extends Menu {
 	private void verLineasFactura() {
 		Factura fac = MenuController.eligeFactura();
 		
-		List<Factura> listFl = new FacturaLinea().getByCampos("id_factura",fac.getId()+"");
-		for(Factura obj: listFl) {
-			System.out.println(obj.getId()+" "+obj);
-		}
-				
+		List<FacturaLinea> list = ctrl2.findByIdFactura(fac.getId());
 				
 		
 	}
